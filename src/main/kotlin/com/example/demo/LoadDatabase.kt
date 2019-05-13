@@ -1,6 +1,5 @@
-package com.example.demo.application
+package com.example.demo
 
-import com.example.demo.MovieRepository
 import com.example.demo.models.Movie
 import org.slf4j.LoggerFactory
 
@@ -11,6 +10,7 @@ import org.springframework.context.annotation.Configuration
 @Configuration
 internal class LoadDatabase {
     private val log = LoggerFactory.getLogger(this::class.java)
+
     @Bean
     fun initDatabase(repository: MovieRepository) = CommandLineRunner {
         log.info("Preloading ${repository.save(Movie(
